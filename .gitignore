@@ -1,3 +1,9 @@
+# IntelliJ
+.idea
+*.iml
+out
+gen
+
 # Logs
 logs
 *.log

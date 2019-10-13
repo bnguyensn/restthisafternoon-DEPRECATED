@@ -1,0 +1,23 @@
+import React from 'react';
+import { ThemeProvider } from 'react-jss';
+import theme from '../../styles/theme';
+import App from './App';
+import Header from './Header';
+import Body from './Body';
+import Footer from './Footer';
+import SEO from '../meta/SEO';
+
+export default function Layout({ location, children }) {
+  const rootPath = `${__PATH_PREFIX__}/`;
+
+  return (
+    <ThemeProvider theme={theme}>
+      <App>
+        <SEO />
+        <Header />
+        <Body>{children}</Body>
+        <Footer />
+      </App>
+    </ThemeProvider>
+  );
+}
