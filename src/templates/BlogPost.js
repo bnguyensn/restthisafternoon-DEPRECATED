@@ -28,18 +28,20 @@ export default function BlogPost({
 
   return (
     <Layout seo={seo}>
-      <h1>{slug}</h1>
+      <h1>{title}</h1>
+      <h3>{date}</h3>
+      <h3>{tags}</h3>
       <MDXRenderer>{body}</MDXRenderer>
     </Layout>
   );
 }
 
 export const pageQuery = graphql`
-  query {
-    mdx {
+  query($slug: String!) {
+    mdx(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
-        date
+        date(formatString: "D MMM YYYY")
         author
         tags
       }
