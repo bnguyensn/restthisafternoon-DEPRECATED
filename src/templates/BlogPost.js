@@ -4,15 +4,26 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/layout/Layout';
 
 export default function BlogPost({
+  // 'data' is passed from the pageQuery at the bottom of this file.
   data: {
-    mdx: { body },
+    mdx: {
+      frontmatter: { title, date, author, tags },
+      body,
+    },
   },
-  pageContext,
-}) {
-  const { slug } = pageContext;
 
+  // 'pageContext' is passed from gatsby's createPage(), which runs on build.
+  // See the top-level gatsby-node.js's createPages() function, which calls a
+  // bunch of createPage().
+  pageContext: { slug },
+}) {
+  // Compose a SEO object, to be passed by the Layout component to the
+  // underlying SEO component.
   const seo = {
+    title,
     type: 'article',
+    author,
+    url: `${process.env.BASE_URL}${slug}`,
   };
 
   return (
@@ -26,6 +37,12 @@ export default function BlogPost({
 export const pageQuery = graphql`
   query {
     mdx {
+      frontmatter {
+        title
+        date
+        author
+        tags
+      }
       body
     }
   }

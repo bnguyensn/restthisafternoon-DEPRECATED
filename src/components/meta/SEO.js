@@ -2,31 +2,17 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import useSiteMetadata from '../../hooks/graphql/useSiteMetadata';
 
-export default function SEO({
-  title,
-  // subtitle,
-  type,
-  author,
-  description,
-  siteUrl,
-  image,
-  // social,
-}) {
-  // Grab default data
+export default function SEO({ title, type, author, description, url, image }) {
+  // Grab default data (only used if the corresponding data is not provided via
+  // props).
   const defaultSiteMetadata = useSiteMetadata();
   const {
     title: defaultTitle,
-    // subtitle: defaultSubtitle,
     author: defaultAuthor,
     description: defaultDescription,
-    siteUrl: defaultSiteUrl,
+    url: defaultUrl,
     image: defaultImage,
-    // social: defaultSocial,
   } = defaultSiteMetadata;
-  /*const {
-    twitter: defaultTwitter,
-    github: defaultGithub
-  } = defaultSocial;*/
 
   return (
     <Helmet title={title || defaultTitle}>
@@ -40,7 +26,7 @@ export default function SEO({
         content={description || defaultDescription}
       />
       <meta property="og:image" content={image || defaultImage} />
-      <meta property="og:url" content={siteUrl || defaultSiteUrl} />
+      <meta property="og:url" content={url || defaultUrl} />
     </Helmet>
   );
 }
