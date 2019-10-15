@@ -78,6 +78,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: blogPostTemplate,
       // This context object is passed as a 'pageObject' prop to the created
       // page's component (get it using 'props.pageObject').
+      // The context object's properties are also passed to the page's graphql
+      // query to be used as query parameters.
       context: {
         slug,
       },

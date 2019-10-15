@@ -36,6 +36,9 @@ export default function BlogPost({
   );
 }
 
+// '$slug' is provided by gatsby's createPage() in its context option.
+// See the top-level gatsby-node.js's createPages() function, which calls a
+// bunch of createPage().
 export const pageQuery = graphql`
   query($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
