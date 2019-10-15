@@ -4,6 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'Rest this Afternoon',
     subtitle: 'Learn from yesterday, live for today, look to tomorrow...',
+    type: 'website',
     author: 'Binh Nguyen',
     description: "Binh Nguyen's blog.",
     siteUrl: 'https://restthisafternoon.dev',

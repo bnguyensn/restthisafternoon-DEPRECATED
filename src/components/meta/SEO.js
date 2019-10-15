@@ -4,25 +4,29 @@ import useSiteMetadata from '../../hooks/graphql/useSiteMetadata';
 
 export default function SEO({
   title,
-  subtitle,
+  // subtitle,
+  type,
   author,
   description,
   siteUrl,
   image,
-  social,
+  // social,
 }) {
   // Grab default data
   const defaultSiteMetadata = useSiteMetadata();
   const {
     title: defaultTitle,
-    subtitle: defaultSubtitle,
+    // subtitle: defaultSubtitle,
     author: defaultAuthor,
     description: defaultDescription,
     siteUrl: defaultSiteUrl,
     image: defaultImage,
-    social: defaultSocial,
+    // social: defaultSocial,
   } = defaultSiteMetadata;
-  const { twitter: defaultTwitter, github: defaultGithub } = defaultSocial;
+  /*const {
+    twitter: defaultTwitter,
+    github: defaultGithub
+  } = defaultSocial;*/
 
   return (
     <Helmet title={title || defaultTitle}>
@@ -30,6 +34,7 @@ export default function SEO({
       <meta name="image" content={image || defaultImage} />
       <meta name="author" content={author || defaultAuthor} />
       <meta property="og:title" content={title || defaultTitle} />
+      <meta property="og:type" content={type || defaultTitle} />
       <meta
         property="og:description"
         content={description || defaultDescription}

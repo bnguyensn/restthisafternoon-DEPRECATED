@@ -7,13 +7,11 @@ import Body from './Body';
 import Footer from './Footer';
 import SEO from '../meta/SEO';
 
-export default function Layout({ location, children }) {
-  const rootPath = `${__PATH_PREFIX__}/`;
-
+export default function Layout({ location, seo, children }) {
   return (
     <ThemeProvider theme={theme}>
       <App>
-        <SEO />
+        <SEO {...seo} />
         <Header />
         <Body>{children}</Body>
         <Footer />

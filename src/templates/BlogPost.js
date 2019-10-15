@@ -11,8 +11,12 @@ export default function BlogPost({
 }) {
   const { slug } = pageContext;
 
+  const seo = {
+    type: 'article',
+  };
+
   return (
-    <Layout>
+    <Layout seo={seo}>
       <h1>{slug}</h1>
       <MDXRenderer>{body}</MDXRenderer>
     </Layout>
