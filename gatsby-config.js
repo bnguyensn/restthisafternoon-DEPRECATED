@@ -7,7 +7,7 @@ module.exports = {
     type: 'website',
     author: 'Binh Nguyen',
     description: "Binh Nguyen's blog.",
-    siteUrl: 'https://restthisafternoon.dev',
+    url: 'https://restthisafternoon.dev',
     image: path.resolve(__dirname, 'content/assets/android-chrome-512x512.png'),
     social: {
       github: 'bnguyensn',

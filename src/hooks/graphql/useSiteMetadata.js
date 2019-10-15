@@ -14,7 +14,7 @@ export default function useSiteMetadata() {
           subtitle
           author
           description
-          siteUrl
+          url
           image
           social {
             github
