@@ -4,16 +4,23 @@ export default {
   palette: {
     primary: {
       light: '#c3fdff',
-      main: '#90caf9',
+      main: '#90caf9', // Blue 200
       dark: '#5d99c6',
+    },
+    grey: {
+      light: '#eeeeee', // Grey 200
+      main: '#bdbdbd', // Grey 400
+      dark: '#757575', // Grey 600
     },
   },
   typography: {
-    fontSize: 20,
     fontFamily: {
-      header: "'Open Sans', 'Arial', 'sans-serif'",
+      header: "'Comfortaa', 'Palatino','serif'",
       body: "'Open Sans', 'Arial', 'sans-serif'",
     },
+  },
+  breakpoints: {
+    s: 768,
   },
   spacing: multiple => baseSpacing * multiple,
 };

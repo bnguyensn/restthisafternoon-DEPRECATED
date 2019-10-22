@@ -18,7 +18,7 @@ export default function LatestPosts() {
     }
   `);
 
-  const latestPosts = data.allMarkdownRemark.edges.map(({ node }) => {
+  const latestPosts = data.allMdx.edges.map(({ node }) => {
     const { frontmatter } = node;
     const { title, date } = frontmatter;
 
@@ -30,5 +30,10 @@ export default function LatestPosts() {
     );
   });
 
-  return <div>{latestPosts}</div>;
+  return (
+    <div>
+      <h2>Latest</h2>
+      <li></li>
+    </div>
+  );
 }
