@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 
 export default function LatestPosts() {
   const data = useStaticQuery(graphql`
@@ -12,6 +12,9 @@ export default function LatestPosts() {
               title
               date(formatString: "YYYY-MM-DD")
             }
+            fields {
+              slug
+            }
           }
         }
       }
@@ -19,21 +22,24 @@ export default function LatestPosts() {
   `);
 
   const latestPosts = data.allMdx.edges.map(({ node }) => {
-    const { frontmatter } = node;
+    const { frontmatter, fields } = node;
     const { title, date } = frontmatter;
+    const { slug } = fields;
 
     return (
-      <div key={title}>
-        <h1>{title}</h1>
-        <h3>{date}</h3>
-      </div>
+      <li key={title}>
+        <div>
+          <Link to={slug}>{title}</Link>
+        </div>
+        <div>{date}</div>
+      </li>
     );
   });
 
   return (
     <div>
       <h2>Latest</h2>
-      <li></li>
+      <ul>{latestPosts}</ul>
     </div>
   );
 }

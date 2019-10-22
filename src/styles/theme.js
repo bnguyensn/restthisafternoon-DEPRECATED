@@ -3,9 +3,11 @@ const baseSpacing = 8; // In px
 export default {
   palette: {
     primary: {
-      light: '#c3fdff',
+      light1: '#bbdefb', // Blue 100
+      light2: '#c3fdff',
       main: '#90caf9', // Blue 200
-      dark: '#5d99c6',
+      dark1: '#64b5f6', // Blue 300
+      dark2: '#5d99c6',
     },
     grey: {
       light: '#eeeeee', // Grey 200

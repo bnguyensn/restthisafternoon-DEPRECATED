@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { createUseStyles, useTheme } from 'react-jss';
-import clsx from 'clsx';
 import Nav from './Nav';
 import useSiteMetadata from '../../hooks/graphql/useSiteMetadata';
 
@@ -8,24 +8,35 @@ const useStyles = createUseStyles(theme => ({
   header: {
     padding: `${theme.spacing(2)}px`,
     fontFamily: theme.typography.fontFamily.header,
+    '& a': {
+      color: 'inherit',
+      textDecoration: 'none',
+    },
+    '& a:visited': {
+      color: 'inherit',
+    },
+    '& a:hover': {
+      color: theme.palette.primary.light1,
+    },
   },
   title: {
-    margin: 0,
-    color: theme.palette.primary.dark,
+    margin: `${theme.spacing(1)}px 0 0 0`,
+    color: theme.palette.primary.main,
     fontSize: '2.5rem',
   },
   subTitle: {
-    display: 'none',
     margin: 0,
     color: theme.palette.grey.main,
+    fontSize: '1rem',
     fontStyle: 'italic',
   },
   [`@media (min-width: ${theme.breakpoints.s}px)`]: {
     title: {
-      margin: `${theme.spacing(1)}px 0 0 ${theme.spacing(2)}px`,
       fontSize: '3rem',
     },
-    subTitle: { display: 'block' },
+    subTitle: {
+      fontSize: '1.25rem',
+    },
   },
 }));
 
@@ -39,7 +50,9 @@ export default function Header() {
   return (
     <header className={classes.header}>
       <h3 className={classes.subTitle}>{subtitle}</h3>
-      <h1 className={classes.title}>{title}</h1>
+      <h1 className={classes.title}>
+        <Link to="/">{title}</Link>
+      </h1>
       <Nav />
     </header>
   );
