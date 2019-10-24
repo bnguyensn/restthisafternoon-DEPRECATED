@@ -6,6 +6,9 @@ import useSiteMetadata from '../../hooks/graphql/useSiteMetadata';
 
 const useStyles = createUseStyles(theme => ({
   header: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
     padding: `${theme.spacing(2)}px`,
     fontFamily: theme.typography.fontFamily.header,
     '& a': {
@@ -21,14 +24,21 @@ const useStyles = createUseStyles(theme => ({
   },
   title: {
     margin: `${theme.spacing(1)}px 0 0 0`,
+    width: '100%',
     color: theme.palette.primary.main,
     fontSize: '2.5rem',
   },
   subTitle: {
     margin: 0,
+    width: '100%',
     color: theme.palette.grey.main,
     fontSize: '1rem',
     fontStyle: 'italic',
+  },
+  divider: {
+    height: 2,
+    width: '100%',
+    backgroundColor: theme.palette.primary.dark2,
   },
   [`@media (min-width: ${theme.breakpoints.s}px)`]: {
     title: {
@@ -53,6 +63,7 @@ export default function Header() {
       <h1 className={classes.title}>
         <Link to="/">{title}</Link>
       </h1>
+      <div className={classes.divider} />
       <Nav />
     </header>
   );
