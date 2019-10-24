@@ -3,7 +3,8 @@ import { createUseStyles, useTheme } from 'react-jss';
 
 const useStyles = createUseStyles(theme => ({
   footer: {
-    backgroundColor: theme.palette.primary.main,
+    padding: theme.spacing(2),
+    backgroundColor: theme.palette.primary.light1,
   },
 }));
 
