@@ -12,18 +12,18 @@ const useStyles = createUseStyles(theme => ({
     padding: `${theme.spacing(2)}px`,
     fontFamily: theme.typography.fontFamily.header,
     '& a': {
-      color: 'inherit',
+      color: theme.palette.primary.main,
       textDecoration: 'none',
     },
     '& a:visited': {
-      color: 'inherit',
+      color: theme.palette.primary.main,
     },
     '& a:hover': {
       color: theme.palette.primary.light1,
     },
   },
   title: {
-    margin: `${theme.spacing(1)}px 0 0 0`,
+    margin: 0,
     width: '100%',
     color: theme.palette.primary.main,
     fontSize: '2.5rem',
@@ -59,7 +59,7 @@ export default function Header() {
 
   return (
     <header className={classes.header}>
-      <h3 className={classes.subTitle}>{subtitle}</h3>
+      {/*<h3 className={classes.subTitle}>{subtitle}</h3>*/}
       <h1 className={classes.title}>
         <Link to="/">{title}</Link>
       </h1>

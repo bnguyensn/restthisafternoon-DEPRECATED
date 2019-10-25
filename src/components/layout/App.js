@@ -4,6 +4,15 @@ import { createUseStyles, useTheme } from 'react-jss';
 const useStyles = createUseStyles(theme => ({
   app: {
     fontFamily: theme.typography.fontFamily.body,
+    '& a': {
+      color: theme.palette.primary.main,
+    },
+    '& a:visited': {
+      color: theme.palette.grey.main,
+    },
+    '& a:hover': {
+      color: theme.palette.primary.light1,
+    },
   },
 }));
 
