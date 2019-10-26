@@ -6,6 +6,7 @@ import Layout from '../components/layout/Layout';
 import Article from '../components/layout/Article';
 import tagToIcon from '../utils/tagToIcon';
 import Code from '../components/parts/Code';
+import { capitalizeSentence } from '../utils/stringUtils';
 
 const components = {
   pre: props => <div {...props} />,
@@ -38,7 +39,7 @@ export default function BlogPost({
   return (
     <Layout seo={seo}>
       <Article>
-        <h1>{title}</h1>
+        <h1>{capitalizeSentence(title)}</h1>
         <div>
           <div style={{ display: 'inline-block' }}>{date}</div>
           <div style={{ display: 'inline-block' }}>{tagToIcon(tags)}</div>

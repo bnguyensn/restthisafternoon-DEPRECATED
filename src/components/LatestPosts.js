@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import Tag from './parts/Tag';
 import createUseStylesWithTheme from '../styles/createUseStylesWithTheme';
+import { capitalizeSentence } from '../utils/stringUtils';
 
 const useStyles = createUseStylesWithTheme(theme => ({
   container: {
@@ -77,7 +78,7 @@ export default function LatestPosts() {
       <li key={title} className={classes.post}>
         <div className={classes.postTitleContainer}>
           <Link to={slug}>
-            <h2 className={classes.postTitle}>{title}</h2>
+            <h2 className={classes.postTitle}>{capitalizeSentence(title)}</h2>
           </Link>
         </div>
         <div className={classes.postDateAndTagsContainer}>
