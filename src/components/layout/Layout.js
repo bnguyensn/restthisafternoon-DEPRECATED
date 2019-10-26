@@ -6,8 +6,8 @@ import Header from './Header';
 import Body from './Body';
 import Footer from './Footer';
 import SEO from '../meta/SEO';
-import '../../styles/global.css';
 import NavMobile from './NavMobile';
+import '../../styles/global.css';
 
 export default function Layout({ location, seo, children }) {
   return (

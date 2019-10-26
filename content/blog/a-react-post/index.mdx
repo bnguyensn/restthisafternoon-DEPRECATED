@@ -1,12 +1,26 @@
 ---
-title: React post
+title: Concurrent Mode Has Arrived in Experimental Mode
 date: 2019-10-25
 last-updated: 2019-10-25
 author: Binh Nguyen
-headline: This post is about React.
+headline: The future is soon to be here.
 type: short
 tags:
   - react
 ---
 
-This post is about React.
+React concurrent mode shipped to the experimental version today.
+
+Here's an example:
+
+```js
+import React from 'react';
+
+export default function Message({ message }) {
+  return (
+    <div>
+      {message}
+    </div>
+  )
+}
+```

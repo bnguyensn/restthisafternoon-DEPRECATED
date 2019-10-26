@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import Tag from './functional/Tag';
+import Tag from './parts/Tag';
 import createUseStylesWithTheme from '../styles/createUseStylesWithTheme';
 
 const useStyles = createUseStylesWithTheme(theme => ({

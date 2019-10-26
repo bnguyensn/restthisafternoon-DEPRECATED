@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Fab from '../functional/Fab';
+import Fab from '../parts/Fab';
 import Menu from '../../assets/icons/Menu';
 import Close from '../../assets/icons/Close';
 import createUseStylesWithTheme from '../../styles/createUseStylesWithTheme';

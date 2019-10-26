@@ -1,12 +1,19 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/layout/Layout';
 import Article from '../components/layout/Article';
 import tagToIcon from '../utils/tagToIcon';
+import Code from '../components/parts/Code';
+
+const components = {
+  pre: props => <div {...props} />,
+  code: Code,
+};
 
 export default function BlogPost({
-  // 'data' is passed from the pageQuery at the bottom of this file.
+  // 'data' is received from the pageQuery at the bottom of this file.
   data: {
     mdx: {
       frontmatter: { title, date, author, tags },
@@ -36,7 +43,9 @@ export default function BlogPost({
           <div style={{ display: 'inline-block' }}>{date}</div>
           <div style={{ display: 'inline-block' }}>{tagToIcon(tags)}</div>
         </div>
-        <MDXRenderer>{body}</MDXRenderer>
+        <MDXProvider components={components}>
+          <MDXRenderer>{body}</MDXRenderer>
+        </MDXProvider>
       </Article>
     </Layout>
   );
