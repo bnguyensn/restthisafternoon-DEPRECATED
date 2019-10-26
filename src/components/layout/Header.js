@@ -1,32 +1,34 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { createUseStyles, useTheme } from 'react-jss';
 import Nav from './Nav';
-import useSiteMetadata from '../../hooks/graphql/useSiteMetadata';
+import useSiteMetadata from '../../hooks/useSiteMetadata';
+import createUseStylesWithTheme from '../../styles/createUseStylesWithTheme';
 
-const useStyles = createUseStyles(theme => ({
+const useStyles = createUseStylesWithTheme(theme => ({
   header: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     padding: `${theme.spacing(2)}px`,
     fontFamily: theme.typography.fontFamily.header,
+    backgroundColor: theme.palette.primary.dark2,
+    boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.3)',
     '& a': {
-      color: theme.palette.primary.main,
+      color: '#ffffff',
       textDecoration: 'none',
     },
     '& a:visited': {
-      color: theme.palette.primary.main,
+      color: '#ffffff',
     },
     '& a:hover': {
-      color: theme.palette.primary.light1,
+      color: '#ffffff',
     },
   },
   title: {
     margin: 0,
     width: '100%',
     color: theme.palette.primary.main,
-    fontSize: '2.5rem',
+    fontSize: '1rem',
   },
   subTitle: {
     margin: 0,
@@ -42,7 +44,7 @@ const useStyles = createUseStyles(theme => ({
   },
   [`@media (min-width: ${theme.breakpoints.s}px)`]: {
     title: {
-      fontSize: '3rem',
+      fontSize: '1rem',
     },
     subTitle: {
       fontSize: '1.25rem',
@@ -51,19 +53,16 @@ const useStyles = createUseStyles(theme => ({
 }));
 
 export default function Header() {
-  const theme = useTheme();
-  const classes = useStyles({ theme });
+  const classes = useStyles();
 
   const data = useSiteMetadata();
   const { title, subtitle } = data;
 
   return (
     <header className={classes.header}>
-      {/*<h3 className={classes.subTitle}>{subtitle}</h3>*/}
       <h1 className={classes.title}>
         <Link to="/">{title}</Link>
       </h1>
-      <div className={classes.divider} />
       <Nav />
     </header>
   );

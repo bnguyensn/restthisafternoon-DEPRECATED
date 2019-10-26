@@ -1,8 +1,8 @@
 import React from 'react';
-import { createUseStyles, useTheme } from 'react-jss';
+import createUseStylesWithTheme from '../../styles/createUseStylesWithTheme';
 
-const useStyles = createUseStyles({
-  fab: ({ backgroundColor, theme }) => ({
+const useStyles = createUseStylesWithTheme({
+  fab: ({ theme, backgroundColor }) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -24,8 +24,7 @@ const useStyles = createUseStyles({
 });
 
 export default function Fab({ onClick, children, ...props }) {
-  const theme = useTheme();
-  const classes = useStyles({ theme, ...props });
+  const classes = useStyles({ ...props });
 
   return (
     <div className={classes.fab} onClick={onClick}>

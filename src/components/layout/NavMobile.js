@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { createUseStyles, useTheme } from 'react-jss';
 import Fab from '../functional/Fab';
 import Menu from '../../assets/icons/Menu';
 import Close from '../../assets/icons/Close';
+import createUseStylesWithTheme from '../../styles/createUseStylesWithTheme';
 
-const useStyles = createUseStyles(theme => ({
+const useStyles = createUseStylesWithTheme(theme => ({
   container: {
     position: 'fixed',
     bottom: theme.spacing(4.5),
@@ -13,8 +13,7 @@ const useStyles = createUseStyles(theme => ({
 }));
 
 export default function NavMobile() {
-  const theme = useTheme();
-  const classes = useStyles({ theme });
+  const classes = useStyles();
 
   const [navMenuOpen, setNavMenuOpen] = useState(false);
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import { createUseStyles, useTheme } from 'react-jss';
+import createUseStylesWithTheme from '../../styles/createUseStylesWithTheme';
 
-const useStyles = createUseStyles(theme => ({
+const useStyles = createUseStylesWithTheme(theme => ({
   footer: {
     padding: theme.spacing(2),
     color: '#ffffff',
@@ -12,8 +12,7 @@ const useStyles = createUseStyles(theme => ({
 }));
 
 export default function Footer() {
-  const theme = useTheme();
-  const classes = useStyles({ theme });
+  const classes = useStyles();
 
   const curYear = new Date(Date.now()).getFullYear();
 

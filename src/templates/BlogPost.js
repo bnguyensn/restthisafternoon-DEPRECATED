@@ -2,6 +2,8 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/layout/Layout';
+import Article from '../components/layout/Article';
+import tagToIcon from '../utils/tagToIcon';
 
 export default function BlogPost({
   // 'data' is passed from the pageQuery at the bottom of this file.
@@ -28,10 +30,14 @@ export default function BlogPost({
 
   return (
     <Layout seo={seo}>
-      <h1>{title}</h1>
-      <h3>{date}</h3>
-      <h3>{tags}</h3>
-      <MDXRenderer>{body}</MDXRenderer>
+      <Article>
+        <h1>{title}</h1>
+        <div>
+          <div style={{ display: 'inline-block' }}>{date}</div>
+          <div style={{ display: 'inline-block' }}>{tagToIcon(tags)}</div>
+        </div>
+        <MDXRenderer>{body}</MDXRenderer>
+      </Article>
     </Layout>
   );
 }

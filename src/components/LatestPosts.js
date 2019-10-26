@@ -1,16 +1,19 @@
 import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import { createUseStyles, useTheme } from 'react-jss';
 import Tag from './functional/Tag';
+import createUseStylesWithTheme from '../styles/createUseStylesWithTheme';
 
-const useStyles = createUseStyles(theme => ({
+const useStyles = createUseStylesWithTheme(theme => ({
+  container: {
+    padding: theme.spacing(2),
+  },
   list: {
     margin: 0,
-    padding: theme.spacing(2),
+    padding: 0,
     listStyleType: 'none',
   },
 
-  post: { marginBottom: theme.spacing(2) },
+  post: { marginBottom: theme.spacing(4) },
 
   postTitleContainer: {
     marginBottom: theme.spacing(1),
@@ -32,14 +35,13 @@ const useStyles = createUseStyles(theme => ({
 
   postTags: {},
 
-  postExcerpt: {
+  postHeadline: {
     fontStyle: 'italic',
   },
 }));
 
 export default function LatestPosts() {
-  const theme = useTheme();
-  const classes = useStyles(theme);
+  const classes = useStyles();
 
   const data = useStaticQuery(graphql`
     query {
@@ -50,9 +52,11 @@ export default function LatestPosts() {
             frontmatter {
               title
               date(formatString: "D MMM YYYY")
+              headline
+              type
               tags
             }
-            excerpt
+            excerpt(pruneLength: 100)
             fields {
               slug
             }
@@ -64,7 +68,7 @@ export default function LatestPosts() {
 
   const latestPosts = data.allMdx.edges.map(({ node }) => {
     const { frontmatter, fields, excerpt } = node;
-    const { title, date, tags } = frontmatter;
+    const { title, date, headline, type, tags } = frontmatter;
     const { slug } = fields;
 
     const tagEls = tags.map(tag => <Tag key={tag} tag={tag} />);
@@ -81,13 +85,13 @@ export default function LatestPosts() {
           <div className={classes.postDateAndTagsSeparator} />
           <div className={classes.postTags}>{tagEls}</div>
         </div>
-        <div className={classes.postExcerpt}>{excerpt}</div>
+        <div className={classes.postHeadline}>{headline || excerpt}</div>
       </li>
     );
   });
 
   return (
-    <div>
+    <div className={classes.container}>
       <ul className={classes.list}>{latestPosts}</ul>
     </div>
   );

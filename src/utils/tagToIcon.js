@@ -1,7 +1,13 @@
 const tagMap = {
-  system: '⚙️',
+  javascript: '🟨',
+  keyboard: '⌨️',
+  life: '🌱',
+  opensource: '👪',
+  python: '🐍',
   react: '⚛️',
   reading: '📚',
+  system: '⚙️',
+  webdev: '🌐',
 };
 
 export default function tagToIcon(tagString) {

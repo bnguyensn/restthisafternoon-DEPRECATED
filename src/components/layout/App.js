@@ -1,24 +1,19 @@
 import React from 'react';
-import { createUseStyles, useTheme } from 'react-jss';
+import createUseStylesWithTheme from '../../styles/createUseStylesWithTheme';
 
-const useStyles = createUseStyles(theme => ({
+const useStyles = createUseStylesWithTheme(theme => ({
   app: {
     fontFamily: theme.typography.fontFamily.body,
-    '& a': {
-      color: theme.palette.primary.main,
-    },
-    '& a:visited': {
-      color: theme.palette.grey.main,
-    },
-    '& a:hover': {
-      color: theme.palette.primary.light1,
+
+    // Header fonts
+    '& h1, h2, h3, h4, h5, h6': {
+      fontFamily: theme.typography.fontFamily.header,
     },
   },
 }));
 
 export default function App({ children }) {
-  const theme = useTheme();
-  const classes = useStyles({ theme });
+  const classes = useStyles();
 
   return <div className={classes.app}>{children}</div>;
 }

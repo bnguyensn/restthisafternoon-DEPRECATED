@@ -1,8 +1,8 @@
 import React from 'react';
-import { createUseStyles } from 'react-jss';
 import tagToIcon from '../../utils/tagToIcon';
+import createUseStylesWithTheme from '../../styles/createUseStylesWithTheme';
 
-const useStyles = createUseStyles({
+const useStyles = createUseStylesWithTheme({
   tag: {
     display: 'inline-block',
   },

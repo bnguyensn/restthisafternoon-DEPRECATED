@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import useSiteMetadata from '../../hooks/graphql/useSiteMetadata';
+import useSiteMetadata from '../../hooks/useSiteMetadata';
 
 export default function SEO({ title, type, author, description, url, image }) {
   // Grab default data (only used if the corresponding data is not provided via
