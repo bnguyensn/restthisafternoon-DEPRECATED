@@ -7,8 +7,14 @@ import createUseStylesWithTheme from '../../styles/createUseStylesWithTheme';
 const useStyles = createUseStylesWithTheme(theme => ({
   container: {
     position: 'fixed',
+    display: 'block',
     bottom: theme.spacing(4.5),
     right: theme.spacing(3),
+  },
+  [`@media (min-width: ${theme.breakpoints.s}px)`]: {
+    container: {
+      display: 'none',
+    },
   },
 }));
 

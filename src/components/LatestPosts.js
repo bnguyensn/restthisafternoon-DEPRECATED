@@ -21,11 +21,13 @@ const useStyles = createUseStylesWithTheme(theme => ({
   },
   postTitle: {
     display: 'inline-block',
+    fontSize: '1.5rem',
   },
 
   postDateAndTagsContainer: {
     display: 'flex',
-    marginBottom: theme.spacing(1),
+    alignItems: 'center',
+    marginBottom: theme.spacing(2),
   },
   postDate: {},
   postDateAndTagsSeparator: {
@@ -80,7 +82,7 @@ export default function LatestPosts() {
         </div>
         <div className={classes.postDateAndTagsContainer}>
           <div className={classes.postDate}>{date}</div>
-          <div className={classes.postDateAndTagsSeparator} />
+          <div className={classes.postDateAndTagsSeparator}>•</div>
           <div className={classes.postTags}>{tagEls}</div>
         </div>
         <div className={classes.postHeadline}>{headline || excerpt}</div>
