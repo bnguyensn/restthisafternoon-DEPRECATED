@@ -78,7 +78,7 @@ function NavButtons({ navMenuOpen, setNavMenuOpen }) {
   const classes = useStyles();
 
   return (
-    <div className={classes.navButtonsContainer}>
+    <nav className={classes.navButtonsContainer}>
       <NavButton
         to={'/'}
         navMenuOpen={navMenuOpen}
@@ -100,7 +100,7 @@ function NavButtons({ navMenuOpen, setNavMenuOpen }) {
       >
         Archive
       </NavButton>
-    </div>
+    </nav>
   );
 }
 

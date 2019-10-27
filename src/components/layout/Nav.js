@@ -1,13 +1,33 @@
-/**
- * The nav bar has 2 versions depending on screen width:
- * - Menu button / extendable drawer (when screen is narrow)
- * - Fully extended (when screen is wide)
- *
- * The content (links) for both versions must be the same.
- */
-
 import React from 'react';
+import { Link } from 'gatsby';
+import createUseStylesWithTheme from '../../styles/createUseStylesWithTheme';
+
+const useStyles = createUseStylesWithTheme(theme => ({
+  navContainer: {
+    display: 'flex',
+  },
+  navLink: {
+    margin: `0 ${theme.spacing(2)}px`,
+  },
+}));
+
+function NavLink({ to, children }) {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.navLink}>
+      <Link to={to}>{children}</Link>
+    </div>
+  );
+}
 
 export default function Nav() {
-  return <nav></nav>;
+  const classes = useStyles();
+
+  return (
+    <nav className={classes.navContainer}>
+      <NavLink to={'/about'}>About</NavLink>
+      <NavLink to={'/archive'}>Archive</NavLink>
+    </nav>
+  );
 }

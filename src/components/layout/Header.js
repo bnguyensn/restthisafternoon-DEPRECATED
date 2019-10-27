@@ -7,7 +7,6 @@ import createUseStylesWithTheme from '../../styles/createUseStylesWithTheme';
 const useStyles = createUseStylesWithTheme(theme => ({
   header: {
     display: 'flex',
-    flexDirection: 'column',
     alignItems: 'center',
     padding: `${theme.spacing(2)}px`,
     fontFamily: theme.typography.fontFamily.header,
@@ -24,30 +23,22 @@ const useStyles = createUseStylesWithTheme(theme => ({
       color: '#ffffff',
     },
   },
+
   title: {
     margin: 0,
     width: '100%',
     color: theme.palette.primary.main,
     fontSize: '1rem',
   },
-  subTitle: {
-    margin: 0,
-    width: '100%',
-    color: theme.palette.grey.main,
-    fontSize: '1rem',
-    fontStyle: 'italic',
+
+  navContainer: {
+    display: 'none',
+    flexGrow: 1,
   },
-  divider: {
-    height: 2,
-    width: '100%',
-    backgroundColor: theme.palette.primary.dark2,
-  },
+
   [`@media (min-width: ${theme.breakpoints.s}px)`]: {
-    title: {
-      fontSize: '1rem',
-    },
-    subTitle: {
-      fontSize: '1.25rem',
+    navContainer: {
+      display: 'inline-block',
     },
   },
 }));
@@ -63,7 +54,9 @@ export default function Header() {
       <h1 className={classes.title}>
         <Link to="/">{title}</Link>
       </h1>
-      <Nav />
+      <div className={classes.navContainer}>
+        <Nav />
+      </div>
     </header>
   );
 }
