@@ -21,6 +21,11 @@ export default {
       body: "'Open Sans', 'Arial', 'sans-serif'",
     },
   },
+  speed: {
+    standardEasing: 'cubic-bezier(0.4, 0.0, 0.2, 1)',
+    decelerateEasing: 'cubic-bezier(0.0, 0.0, 0.2, 1)',
+    accelerateEasing: 'cubic-bezier(0.4, 0.0, 1, 1)',
+  },
   breakpoints: {
     s: 768,
   },
