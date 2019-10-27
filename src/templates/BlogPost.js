@@ -7,26 +7,28 @@ import Article from '../components/layout/Article';
 import tagToIcon from '../utils/tagToIcon';
 import Code from '../components/parts/Code';
 import { capitalizeSentence } from '../utils/stringUtils';
+import Frontmatter from '../components/layout/Frontmatter';
+import ArticleBody from '../components/layout/ArticleBody';
 
 const components = {
   pre: props => <div {...props} />,
   code: Code,
 };
 
-export default function BlogPost({
+export default function BlogPost(props) {
   // 'data' is received from the pageQuery at the bottom of this file.
-  data: {
+  // 'pageContext' is passed from gatsby's createPage(), which runs on build.
+  // See the top-level gatsby-node.js's createPages() function, which calls a
+  // bunch of createPage().
+  const { data, pageContext } = props;
+  const {
     mdx: {
       frontmatter: { title, date, author, tags },
       body,
     },
-  },
+  } = data;
+  const { slug } = pageContext;
 
-  // 'pageContext' is passed from gatsby's createPage(), which runs on build.
-  // See the top-level gatsby-node.js's createPages() function, which calls a
-  // bunch of createPage().
-  pageContext: { slug },
-}) {
   // Compose a SEO object, to be passed by the Layout component to the
   // underlying SEO component.
   const seo = {
@@ -39,28 +41,26 @@ export default function BlogPost({
   return (
     <Layout seo={seo}>
       <Article>
-        <h1>{capitalizeSentence(title)}</h1>
-        <div>
-          <div style={{ display: 'inline-block' }}>{date}</div>
-          <div style={{ display: 'inline-block' }}>{tagToIcon(tags)}</div>
-        </div>
-        <MDXProvider components={components}>
-          <MDXRenderer>{body}</MDXRenderer>
-        </MDXProvider>
+        <Frontmatter title={title} date={date} tags={tags} />
+        <ArticleBody>
+          <MDXProvider components={components}>
+            <MDXRenderer>{body}</MDXRenderer>
+          </MDXProvider>
+        </ArticleBody>
       </Article>
     </Layout>
   );
 }
 
 // '$slug' is provided by gatsby's createPage() in its context option.
-// See the top-level gatsby-node.js's createPages() function, which calls a
-// bunch of createPage().
+// createPage() is defined in the top-level 'gatsby-node.js' file, and called
+// during the build phase whenever Gatsby creates a page.
 export const pageQuery = graphql`
   query($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
-        date(formatString: "D MMM YYYY")
+        date(formatString: "MMMM D, YYYY")
         author
         tags
       }

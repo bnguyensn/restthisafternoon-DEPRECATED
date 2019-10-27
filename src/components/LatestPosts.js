@@ -20,9 +20,7 @@ const useStyles = createUseStylesWithTheme(theme => ({
     marginBottom: theme.spacing(1),
   },
   postTitle: {
-    margin: 0,
     display: 'inline-block',
-    fontWeight: 900,
   },
 
   postDateAndTagsContainer: {
@@ -33,7 +31,6 @@ const useStyles = createUseStylesWithTheme(theme => ({
   postDateAndTagsSeparator: {
     margin: `0 ${theme.spacing(1)}px`,
   },
-
   postTags: {},
 
   postHeadline: {
@@ -52,7 +49,7 @@ export default function LatestPosts() {
           node {
             frontmatter {
               title
-              date(formatString: "D MMM YYYY")
+              date(formatString: "MMMM D, YYYY")
               headline
               type
               tags
