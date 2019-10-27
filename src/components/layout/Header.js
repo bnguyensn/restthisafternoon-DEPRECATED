@@ -56,7 +56,7 @@ export default function Header() {
   const classes = useStyles();
 
   const data = useSiteMetadata();
-  const { title, subtitle } = data;
+  const { title } = data;
 
   return (
     <header className={classes.header}>

@@ -16,6 +16,7 @@ const useStyles = createUseStylesWithTheme(theme => ({
   postDateAndTagsContainer: {
     display: 'flex',
     alignItems: 'center',
+    fontSize: '.8rem',
   },
   postDate: {},
   postDateAndTagsSeparator: {

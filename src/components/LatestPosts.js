@@ -28,6 +28,7 @@ const useStyles = createUseStylesWithTheme(theme => ({
     display: 'flex',
     alignItems: 'center',
     marginBottom: theme.spacing(2),
+    fontSize: '.8rem',
   },
   postDate: {},
   postDateAndTagsSeparator: {
@@ -68,7 +69,7 @@ export default function LatestPosts() {
 
   const latestPosts = data.allMdx.edges.map(({ node }) => {
     const { frontmatter, fields, excerpt } = node;
-    const { title, date, headline, type, tags } = frontmatter;
+    const { title, date, headline, tags } = frontmatter;
     const { slug } = fields;
 
     const tagEls = tags.map(tag => <Tag key={tag} tag={tag} />);

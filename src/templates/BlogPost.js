@@ -4,9 +4,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/layout/Layout';
 import Article from '../components/layout/Article';
-import tagToIcon from '../utils/tagToIcon';
 import Code from '../components/parts/Code';
-import { capitalizeSentence } from '../utils/stringUtils';
 import Frontmatter from '../components/layout/Frontmatter';
 import ArticleBody from '../components/layout/ArticleBody';
 
