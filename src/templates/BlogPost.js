@@ -5,7 +5,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/layout/Layout';
 import Article from '../components/layout/Article';
 import Code from '../components/parts/Code';
-import Frontmatter from '../components/layout/Frontmatter';
+import ArticleFrontmatter from '../components/layout/ArticleFrontmatter';
 import ArticleBody from '../components/layout/ArticleBody';
 
 const components = {
@@ -39,7 +39,7 @@ export default function BlogPost(props) {
   return (
     <Layout seo={seo}>
       <Article>
-        <Frontmatter title={title} date={date} tags={tags} />
+        <ArticleFrontmatter title={title} date={date} tags={tags} />
         <ArticleBody>
           <MDXProvider components={components}>
             <MDXRenderer>{body}</MDXRenderer>

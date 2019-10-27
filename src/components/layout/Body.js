@@ -6,6 +6,7 @@ const useStyles = createUseStylesWithTheme(theme => ({
     minHeight: '100vh',
     '& a': {
       color: theme.palette.primary.main,
+      textDecoration: 'none',
     },
     '& a:visited': {
       color: theme.palette.grey.main,

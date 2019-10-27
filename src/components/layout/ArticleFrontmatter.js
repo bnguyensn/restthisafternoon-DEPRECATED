@@ -10,7 +10,7 @@ const useStyles = createUseStylesWithTheme(theme => ({
 
   postTitle: {
     marginBottom: theme.spacing(1),
-    fontSize: '2rem',
+    fontSize: '1.5rem',
   },
 
   postDateAndTagsContainer: {
@@ -18,14 +18,16 @@ const useStyles = createUseStylesWithTheme(theme => ({
     alignItems: 'center',
     fontSize: '.8rem',
   },
-  postDate: {},
+  postDate: {
+    fontStyle: 'italic',
+  },
   postDateAndTagsSeparator: {
     margin: `0 ${theme.spacing(1)}px`,
   },
   postTags: {},
 }));
 
-export default function Frontmatter({ title, date, tags }) {
+export default function ArticleFrontmatter({ title, date, tags }) {
   const classes = useStyles();
 
   const tagEls = tags.map(tag => <Tag key={tag} tag={tag} />);

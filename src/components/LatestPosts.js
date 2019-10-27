@@ -14,7 +14,9 @@ const useStyles = createUseStylesWithTheme(theme => ({
     listStyleType: 'none',
   },
 
-  post: { marginBottom: theme.spacing(4) },
+  post: {
+    marginBottom: theme.spacing(6),
+  },
 
   postTitleContainer: {
     marginBottom: theme.spacing(1),
@@ -22,6 +24,15 @@ const useStyles = createUseStylesWithTheme(theme => ({
   postTitle: {
     display: 'inline-block',
     fontSize: '1.5rem',
+    '& a': {
+      color: '#000000',
+    },
+    '& a:visited': {
+      color: '#000000',
+    },
+    '& a:hover': {
+      color: theme.palette.primary.light1,
+    },
   },
 
   postDateAndTagsContainer: {
@@ -30,15 +41,15 @@ const useStyles = createUseStylesWithTheme(theme => ({
     marginBottom: theme.spacing(2),
     fontSize: '.8rem',
   },
-  postDate: {},
+  postDate: {
+    fontStyle: 'italic',
+  },
   postDateAndTagsSeparator: {
     margin: `0 ${theme.spacing(1)}px`,
   },
   postTags: {},
 
-  postHeadline: {
-    fontStyle: 'italic',
-  },
+  postHeadline: {},
 }));
 
 export default function LatestPosts() {
@@ -77,9 +88,9 @@ export default function LatestPosts() {
     return (
       <li key={title} className={classes.post}>
         <div className={classes.postTitleContainer}>
-          <Link to={slug}>
-            <h2 className={classes.postTitle}>{capitalizeSentence(title)}</h2>
-          </Link>
+          <h2 className={classes.postTitle}>
+            <Link to={slug}>{capitalizeSentence(title)}</Link>
+          </h2>
         </div>
         <div className={classes.postDateAndTagsContainer}>
           <div className={classes.postDate}>{date}</div>
