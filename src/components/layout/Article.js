@@ -2,9 +2,7 @@ import React from 'react';
 import createUseStylesWithTheme from '../../styles/createUseStylesWithTheme';
 
 const useStyles = createUseStylesWithTheme(theme => ({
-  article: {
-    padding: theme.spacing(2),
-  },
+  article: {},
 }));
 
 export default function Article({ children }) {

@@ -5,9 +5,7 @@ import createUseStylesWithTheme from '../styles/createUseStylesWithTheme';
 import { capitalizeSentence } from '../utils/stringUtils';
 
 const useStyles = createUseStylesWithTheme(theme => ({
-  container: {
-    padding: theme.spacing(2),
-  },
+  container: {},
   list: {
     margin: 0,
     padding: 0,

@@ -29,5 +29,8 @@ export default {
   breakpoints: {
     s: 768,
   },
+  misc: {
+    bodyMaxWidth: 960,
+  },
   spacing: multiple => baseSpacing * multiple,
 };
