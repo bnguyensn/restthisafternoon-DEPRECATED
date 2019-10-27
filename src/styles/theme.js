@@ -30,6 +30,7 @@ export default {
     s: 768,
   },
   misc: {
+    headerMaxWidth: 1280,
     bodyMaxWidth: 960,
   },
   spacing: multiple => baseSpacing * multiple,

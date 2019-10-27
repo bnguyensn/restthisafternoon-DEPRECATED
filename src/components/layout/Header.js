@@ -5,13 +5,20 @@ import useSiteMetadata from '../../hooks/useSiteMetadata';
 import createUseStylesWithTheme from '../../styles/createUseStylesWithTheme';
 
 const useStyles = createUseStylesWithTheme(theme => ({
-  header: {
+  headerContainer: {
     display: 'flex',
-    alignItems: 'center',
-    padding: `${theme.spacing(2)}px`,
+    justifyContent: 'center',
+    width: '100%',
     fontFamily: theme.typography.fontFamily.header,
     backgroundColor: theme.palette.primary.dark2,
     boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.3)',
+  },
+  header: {
+    display: 'flex',
+    alignItems: 'center',
+    width: '100%',
+    maxWidth: theme.misc.headerMaxWidth,
+    padding: `${theme.spacing(2)}px`,
     '& a': {
       color: '#ffffff',
       textDecoration: 'none',
@@ -50,13 +57,15 @@ export default function Header() {
   const { title } = data;
 
   return (
-    <header className={classes.header}>
-      <h1 className={classes.title}>
-        <Link to="/">{title}</Link>
-      </h1>
-      <div className={classes.navContainer}>
-        <Nav />
-      </div>
-    </header>
+    <div className={classes.headerContainer}>
+      <header className={classes.header}>
+        <h1 className={classes.title}>
+          <Link to="/">{title}</Link>
+        </h1>
+        <div className={classes.navContainer}>
+          <Nav />
+        </div>
+      </header>
+    </div>
   );
 }
