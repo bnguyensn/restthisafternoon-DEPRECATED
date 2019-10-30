@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
-import Tag from './parts/Tag';
-import createUseStylesWithTheme from '../styles/createUseStylesWithTheme';
-import { capitalizeSentence } from '../utils/stringUtils';
+import Tag from '../parts/Tag';
+import createUseStylesWithTheme from '../../styles/createUseStylesWithTheme';
+import { capitalizeSentence } from '../../utils/stringUtils';
 
 const useStyles = createUseStylesWithTheme(theme => ({
   container: {},

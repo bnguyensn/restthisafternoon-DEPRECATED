@@ -1,0 +1,29 @@
+---
+title: Creating create-react-app (part 1)
+date: 2019-10-30
+last-updated: 2019-10-30
+author: Binh Nguyen
+headline: What goes into creating a React web application.
+type: series
+tags:
+  - javascript
+  - react
+---
+
+## Tools to create tools
+
+> If I have seen further it is by standing on the shoulders of giants.
+
+Being able to access recorded knowledge have been the most important reason behind how human is the most advanced specie in history. Utilising previously accumulated knowledge by others allows us to accelerate our own knowledge at a rapid rate, achieving a massive compounding effect. So to move fast, don't re-invent the wheel.
+
+Software engineering is no different. Applications are constructed using tools, which in turn are built using other tools, and so on. Though it's a great boon that the tooling layer's complexities are abstracted away for us developers, sometimes it's also important to at least have an understanding on what's going on underneath. Because then we will enjoy the assured comfort that, we know a little bit more about what we are actually doing.
+
+This series focuses on the tooling layer immediately below `create-react-app`, i.e. the asset bundler [webpack](https://webpack.js.org/) and its ecosystem. Overall, the components that make up this layer can be categorised like so:
+
+Tool Type|Package|Description
+---|---|---
+Core|webpack|The asset bundler that powers `create-react-app`.
+Development|ESLint, Alex, prettier, lerna|This category includes the linters, the code formatter, and the repo manager.
+Workflow|Azure pipelines, Netlify|
+
+
